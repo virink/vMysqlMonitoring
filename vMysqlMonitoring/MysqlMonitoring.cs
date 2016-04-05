@@ -95,11 +95,13 @@ namespace MysqlMonitoringMain
                 Bs = new BindingSource();
                 Bs.DataSource = view1;
                 dataGridView1.DataSource = Bs;
+                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                 txt_count.Text = "行数：" + Bs.Count;
                 dataGridView1.Columns[0].HeaderText = "时间";
                 dataGridView1.Columns[1].HeaderText = "语句";
                 dataGridView1.Columns[0].Width = 150;
                 dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.FirstDisplayedScrollingRowIndex = this.dataGridView1.Rows.Count - 1;
 
             }
             catch (Exception)
