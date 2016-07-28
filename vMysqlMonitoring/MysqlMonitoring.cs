@@ -77,17 +77,30 @@ namespace MysqlMonitoringMain
         }
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        private void init()
         {
             var_datatime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             txt_break.Text = "断点：" + var_datatime;
+            try
+            {
+                func_getmysqlcom("set global general_log=on;SET GLOBAL log_output='table';");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("数据库出错，请检查连接信息以及确认mysql版本在5.1.6以上", "提示");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            init();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                func_getmysqlcom("set global general_log=on;SET GLOBAL log_output='table';");
+                //func_getmysqlcom("set global general_log=on;SET GLOBAL log_output='table';");
                 string sql = "select event_time,argument from mysql.general_log where command_type='Query' and argument not like 'set global general_log=on;SET GLOBAL log_output%' and argument not like 'select event_time,argument from%' and argument not like 'SHOW%' and argument not like 'SET NAMES gbk;SET character_set_results=NULL%' and event_time>'" + var_datatime + "'";
                 DataSet ds = func_getmysqlread(sql);
                 DataTableCollection tables = ds.Tables;
@@ -112,10 +125,7 @@ namespace MysqlMonitoringMain
 
         private void F_MysqlMonitoring_Load(object sender, EventArgs e)
         {
-            var_datatime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            txt_break.Text = "断点：" + var_datatime;
-            myTimer.Tick += new EventHandler(button2_Click); //给timer挂起事件
-            myTimer.Interval = 1000; //设置时间间隔，以毫秒为单位
+            init();
         }
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,24 +151,6 @@ namespace MysqlMonitoringMain
                     txt_count.Text = "行数：" + Bs.Count;
                 }
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            myTimer.Interval = int.Parse(txt_time.Text)*1000; //设置时间间隔，以毫秒为单位
-            if (t)
-            {
-                t = false;
-                myTimer.Stop();
-                btn_auto.Text = "开始自动获取";
-            }
-            else
-            {
-                t = true;
-                myTimer.Start();
-                btn_auto.Text = "停止自动获取";
-            }
-                
         }
     }
 }

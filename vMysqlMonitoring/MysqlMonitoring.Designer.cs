@@ -41,9 +41,7 @@
             this.txt_break = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_searchkey = new System.Windows.Forms.TextBox();
-            this.btn_auto = new System.Windows.Forms.Button();
             this.txt_time = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -128,6 +126,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.txt_time);
             this.groupBox1.Location = new System.Drawing.Point(12, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1160, 492);
@@ -215,34 +214,12 @@
             this.txt_searchkey.TabIndex = 14;
             this.txt_searchkey.TextChanged += new System.EventHandler(this.txt_searchkey_TextChanged);
             // 
-            // btn_auto
-            // 
-            this.btn_auto.BackColor = System.Drawing.Color.White;
-            this.btn_auto.Location = new System.Drawing.Point(703, 11);
-            this.btn_auto.Name = "btn_auto";
-            this.btn_auto.Size = new System.Drawing.Size(94, 23);
-            this.btn_auto.TabIndex = 15;
-            this.btn_auto.Text = "开始自动获取";
-            this.btn_auto.UseVisualStyleBackColor = false;
-            this.btn_auto.Click += new System.EventHandler(this.button3_Click);
-            // 
             // txt_time
             // 
-            this.txt_time.Location = new System.Drawing.Point(803, 11);
+            this.txt_time.Location = new System.Drawing.Point(138, 37);
             this.txt_time.Name = "txt_time";
-            this.txt_time.Size = new System.Drawing.Size(28, 21);
-            this.txt_time.TabIndex = 16;
-            this.txt_time.Text = "1";
-            this.txt_time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(837, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(11, 12);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "s";
+            this.txt_time.Size = new System.Drawing.Size(100, 21);
+            this.txt_time.TabIndex = 18;
             // 
             // MysqlMonitoring
             // 
@@ -250,9 +227,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 562);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_time);
-            this.Controls.Add(this.btn_auto);
             this.Controls.Add(this.txt_searchkey);
             this.Controls.Add(this.txt_break);
             this.Controls.Add(this.txt_count);
@@ -274,6 +248,7 @@
             this.Text = "MysSQL 执行语句监测 general_log版本 By Virink 【借鉴Seay法师插件源码】";
             this.Load += new System.EventHandler(this.F_MysqlMonitoring_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -299,8 +274,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_searchkey;
-        private System.Windows.Forms.Button btn_auto;
         private System.Windows.Forms.TextBox txt_time;
-        private System.Windows.Forms.Label label5;
     }
 }
