@@ -19,13 +19,6 @@ class PreferencesController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
-        /*
-        self.pf_host.stringValue = self.p_host
-        self.pf_port.stringValue = self.p_port
-        self.pf_user.stringValue = self.p_user
-        self.pf_pass.stringValue = self.p_pass
-        */
     }
     
     var p_host:String{
@@ -38,7 +31,7 @@ class PreferencesController: NSViewController {
         }
     }
     
-    var p_port:String{
+    var p_port:Int{
         get{
             return PreferenceData.sharedInstance.v_port
         }
@@ -68,4 +61,10 @@ class PreferencesController: NSViewController {
         }
     }
     
+    override func keyDown(with event: NSEvent) {
+        if (event.modifierFlags.contains(.command) && event.keyCode == 13) {
+            PreferenceData.sharedInstance.save()
+//            view
+        }
+    }
 }

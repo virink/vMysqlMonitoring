@@ -1,0 +1,118 @@
+//
+//  Query.swift
+//  mysql_driver
+//
+//  Created by Marius Corega on 24/12/15.
+//  Copyright © 2015 Marius Corega. All rights reserved.
+//
+
+
+import Foundation
+
+public extension MySQL.Connection {
+
+    public enum QueryResultType {
+        case success(MySQL.ResultSet)
+        case error(Error)
+    }
+    
+    public class QueryResult {
+        
+        var rows : MySQL.ResultSet?
+        var succClosure : ((_ rows:MySQL.ResultSet)->Void)? = nil
+        var errorClosure : ((_ error:Error)->Void)? = nil
+        
+        init() {
+        }
+        
+        init(r:MySQL.ResultSet) {
+            rows = r
+            //succClosure = nil
+        }
+        
+        open func success(_ closure:@escaping (_ rows:MySQL.ResultSet)->Void)->Self {
+            
+            succClosure = closure
+            
+            return self
+        }
+        
+        open func error(_ closure:@escaping (_ error:Error)->Void)->Self {
+            
+            errorClosure = closure
+            
+            return self
+        }
+    }
+
+
+    func query(_ q:String) throws -> Result {
+        
+     //   if self.EOFfound && !self.hasMoreResults {
+            try writeCommandPacketStr(MysqlCommands.COM_QUERY, q: q)
+            
+            let resLen = try readResultSetHeaderPacket()
+            self.columns = try readColumns(resLen)
+            
+            return MySQL.TextRow(con: self)
+            
+    //    }
+    //    throw MySQL.Connection.Error.QueryInProgress
+    }
+    
+    func nextResult() throws -> Result {
+        let resLen = try readResultSetHeaderPacket()
+        self.columns = try readColumns(resLen)
+        
+        return MySQL.TextRow(con: self)
+        
+    }
+    
+    func prepare(_ q:String) throws -> MySQL.Statement {
+        
+        guard self.socket != nil else {
+            throw MySQL.Connection.ConnectionError.notConnected
+        }
+        
+        try writeCommandPacketStr(MysqlCommands.COM_STMT_PREPARE, q: q)
+        let stmt = MySQL.Statement(con: self)
+        
+        if let colCount = try stmt.readPrepareResultPacket(), let  paramCount = stmt.paramCount {
+            if paramCount > 0 {
+                try readUntilEOF()
+            }
+            
+            if colCount > 0 {
+                try readUntilEOF()
+            }
+        }
+        else {
+            throw MySQL.Connection.ConnectionError.statementPrepareError("Could not get col and param count")
+        }
+        
+        return stmt
+    }
+    
+    func exec(_ q:String) throws {
+        try writeCommandPacketStr(MysqlCommands.COM_QUERY, q: q)
+        
+        let resLen = try readResultSetHeaderPacket()
+        
+        if resLen > 0 {
+            try readUntilEOF()
+            try readUntilEOF()
+        }
+    }
+    
+    func use(_ dbname:String) throws {
+        try writeCommandPacketStr(MysqlCommands.COM_INIT_DB, q: dbname)
+        self.dbname = dbname
+        
+        let resLen = try readResultSetHeaderPacket()
+        
+        if resLen > 0 {
+            try readUntilEOF()
+            try readUntilEOF()
+        }
+    }
+}
