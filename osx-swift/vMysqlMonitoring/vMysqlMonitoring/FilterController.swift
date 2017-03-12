@@ -10,6 +10,8 @@ import Cocoa
 
 class FilterController: NSViewController {
 
+    @IBOutlet weak var filterView: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -21,8 +23,8 @@ class FilterController: NSViewController {
             return ""
         }
         set{
-            return MysqlAction.sharedInstance.filter = newValue
-//            ViewController.queryAll(<#T##ViewController#>)
+            MysqlAction.sharedInstance.filter = newValue
+            
         }
     }
     
