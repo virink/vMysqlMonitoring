@@ -18,13 +18,9 @@ class MysqlAction {
     var seconds:Double = 0.0
     
     init(){
-        self.connect()
-        self.openlog()
-        self.getseconds()
-        self.getdatetimenow()
     }
     
-    func connect(){
+    func connect() {
         if !self.con.isConnected {
             do{
                 try self.con.open(
@@ -40,7 +36,6 @@ class MysqlAction {
     }
     
     func openlog(){
-        connect()
         do {
             try self.con.exec("use mysql;")
             try self.con.exec("truncate table general_log;") // clear log
@@ -53,33 +48,28 @@ class MysqlAction {
     }
     
     func getseconds(){
-        connect()
-        do {
-            let stmt = try self.con.prepare("select unix_timestamp() as 'stime' from dual where 9 > ?;")
-            let res = try stmt.query([1])
-            let temp2:Double = Double(NSDate().timeIntervalSince1970)
-            let rows = try res.readAllRows()
-            var temp1:Double = 0.0
-            if ((rows?.count)! > 0 && (rows?[0].count)! > 0 && (rows?[0][0].count)! > 0){
-                let temp = rows?[0][0]["stime"] as! Int64
-                temp1 = Double(temp)
+        if self.con.isConnected {
+            do {
+                let stmt = try self.con.prepare("select unix_timestamp() as 'stime' from dual where 9 > ?;")
+                let res = try stmt.query([1])
+                let temp2:Double = Double(NSDate().timeIntervalSince1970)
+                let rows = try res.readAllRows()
+                var temp1:Double = 0.0
+                if ((rows?.count)! > 0 && (rows?[0].count)! > 0 && (rows?[0][0].count)! > 0){
+                    let temp = rows?[0][0]["stime"] as! Int64
+                    temp1 = Double(temp)
+                }
+                self.seconds = Double(temp1) - 1.0 - Double(temp2)
             }
-//            print(temp1)
-//            print(temp2)
-            self.seconds = Double(temp1) - 1.0 - Double(temp2)
-//            print("seconds : ")
-//            print(self.seconds)
-            
-        }
-        catch(let e)
-        {
-            print(e)
+            catch(let e)
+            {
+                print(e)
+            }
         }
     }
     
     func query() throws -> [MySQL.Row]?
     {
-        connect()
         do{
             let stmt = try self.con.prepare("select event_time as 'vtime', argument as 'vsql' from mysql.general_log where command_type='Query' and argument not like '%general\\_log%' and argument not like '%log\\_output%' and unix_timestamp(event_time) > ?;")
             let res = try stmt.query(["\(self.datatime)"])

@@ -10,13 +10,8 @@ import Cocoa
 
 class PreferencesController: NSViewController {
     
+    @IBOutlet weak var statusTextField:NSTextField!
     
-    @IBOutlet weak var pf_host: NSTextField!
-    @IBOutlet weak var pf_port: NSTextField!
-    @IBOutlet weak var pf_user: NSTextField!
-    @IBOutlet weak var pf_pass: NSTextField!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }

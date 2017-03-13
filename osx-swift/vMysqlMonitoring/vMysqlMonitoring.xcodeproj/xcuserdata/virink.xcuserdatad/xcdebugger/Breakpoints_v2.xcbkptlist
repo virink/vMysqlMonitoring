@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "query()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,13 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "getdatetimenow()"
-            landmarkType = "7">
+            startingLineNumber = "96"
+            endingLineNumber = "96">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -105,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "openlog()"
             landmarkType = "7">
          </BreakpointContent>
@@ -137,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "query()"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,11 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "query()"
             landmarkType = "7">
          </BreakpointContent>
@@ -169,28 +167,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "query()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "getseconds()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/MysqlAction.swift"
-            timestampString = "511030532.763029"
+            timestampString = "511094951.005779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "query()"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,11 +215,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/ViewController.swift"
-            timestampString = "511037688.295576"
+            timestampString = "511096255.427752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "queryAll()"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,11 +231,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/ViewController.swift"
-            timestampString = "511037688.295576"
+            timestampString = "511096255.427752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "dts(t:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -265,13 +247,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vMysqlMonitoring/ViewController.swift"
-            timestampString = "511037688.295576"
+            timestampString = "511096255.427752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "filter(f:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "ConnectSQL(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "vMysqlMonitoring/ViewController.swift"
+            timestampString = "511096221.495285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vMysqlMonitoring.ViewController.originalData.getter : Swift.Array&lt;__ObjC.NSDictionary&gt;"
+                  moduleName = "vMysqlMonitoring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/virink/Workspace/vMysqlMonitoring/osx-swift/vMysqlMonitoring/vMysqlMonitoring/ViewController.swift"
+                  timestampString = "511096222.299878"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vMysqlMonitoring.ViewController.originalData.setter : Swift.Array&lt;__ObjC.NSDictionary&gt;"
+                  moduleName = "vMysqlMonitoring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/virink/Workspace/vMysqlMonitoring/osx-swift/vMysqlMonitoring/vMysqlMonitoring/ViewController.swift"
+                  timestampString = "511096222.303941"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vMysqlMonitoring.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Swift.Optional&lt;vMysqlMonitoring.ViewController&gt;"
+                  moduleName = "vMysqlMonitoring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/virink/Workspace/vMysqlMonitoring/osx-swift/vMysqlMonitoring/vMysqlMonitoring/ViewController.swift"
+                  timestampString = "511096222.308118"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "143">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vMysqlMonitoring.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;vMysqlMonitoring.ViewController&gt;"
+                  moduleName = "vMysqlMonitoring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/virink/Workspace/vMysqlMonitoring/osx-swift/vMysqlMonitoring/vMysqlMonitoring/ViewController.swift"
+                  timestampString = "511096222.312016"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

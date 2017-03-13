@@ -28,7 +28,6 @@
 		9034B8AD1E6F6CB1008E71D4 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9034B8A01E6F6CB1008E71D4 /* Statement.swift */; };
 		9034B8AE1E6F6CB1008E71D4 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9034B8A11E6F6CB1008E71D4 /* Table.swift */; };
 		9034B8B01E6F6CB1008E71D4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9034B8A31E6F6CB1008E71D4 /* Utils.swift */; };
-		9090EFAD1E7507BD00E2AE8E /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9090EFAC1E7507BD00E2AE8E /* FilterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,6 @@
 		9034B8A01E6F6CB1008E71D4 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = MySQLDriver/Statement.swift; sourceTree = "<group>"; };
 		9034B8A11E6F6CB1008E71D4 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = MySQLDriver/Table.swift; sourceTree = "<group>"; };
 		9034B8A31E6F6CB1008E71D4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = MySQLDriver/Utils.swift; sourceTree = "<group>"; };
-		9090EFAC1E7507BD00E2AE8E /* FilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +134,6 @@
 				9034B87E1E6F1BC4008E71D4 /* PreferencesController.swift */,
 				9034B8801E6F20F4008E71D4 /* PreferenceData.swift */,
 				9034B8891E6F57EB008E71D4 /* MysqlAction.swift */,
-				9090EFAC1E7507BD00E2AE8E /* FilterController.swift */,
 			);
 			path = vMysqlMonitoring;
 			sourceTree = "<group>";
@@ -322,7 +319,6 @@
 				9034B8A91E6F6CB1008E71D4 /* Query.swift in Sources */,
 				9034B8A71E6F6CB1008E71D4 /* mysql.swift in Sources */,
 				9034B8541E6F0FE2008E71D4 /* AppDelegate.swift in Sources */,
-				9090EFAD1E7507BD00E2AE8E /* FilterController.swift in Sources */,
 				9034B8A81E6F6CB1008E71D4 /* Packets.swift in Sources */,
 				9034B87F1E6F1BC4008E71D4 /* PreferencesController.swift in Sources */,
 				9034B8AE1E6F6CB1008E71D4 /* Table.swift in Sources */,
