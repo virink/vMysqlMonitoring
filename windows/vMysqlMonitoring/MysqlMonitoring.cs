@@ -19,7 +19,6 @@ namespace MysqlMonitoringMain
         //断点时间
         string var_datatime = "";
         Timer myTimer = new System.Windows.Forms.Timer();
-        bool t = false;
         BindingSource Bs = null;
 
 
@@ -101,7 +100,7 @@ namespace MysqlMonitoringMain
             try
             {
                 //func_getmysqlcom("set global general_log=on;SET GLOBAL log_output='table';");
-                string sql = "select event_time,argument from mysql.general_log where command_type='Query' and argument not like 'set global general_log=on;SET GLOBAL log_output%' and argument not like 'select event_time,argument from%' and argument not like 'SHOW%' and argument not like 'SET NAMES gbk;SET character_set_results=NULL%' and event_time>'" + var_datatime + "'";
+                string sql = "SELECT event_time,argument FROM mysql.general_log WHERE (command_type = 'Query' OR command_type = 'Execute') AND argument NOT LIKE '%general_log%' AND argument NOT LIKE '%select event_time,argument from%' AND argument NOT LIKE '%SHOW%' AND argument NOT LIKE '%SELECT STATE%' AND argument NOT LIKE '%SET NAMES%' AND argument NOT LIKE '%SET PROFILING%' AND argument NOT LIKE '%SELECT QUERY_ID%' AND event_time>'" + var_datatime + "'";
                 DataSet ds = func_getmysqlread(sql);
                 DataTableCollection tables = ds.Tables;
                 DataView view1 = new DataView(tables[0]);
