@@ -25,86 +25,40 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MysqlMonitoring));
-            this.txt_pass = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_user = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_host = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.CopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_time = new System.Windows.Forms.TextBox();
             this.txt_count = new System.Windows.Forms.Label();
             this.txt_break = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_searchkey = new System.Windows.Forms.TextBox();
-            this.txt_time = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_host = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_user = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_pass = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_port = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_pass
-            // 
-            this.txt_pass.Location = new System.Drawing.Point(391, 12);
-            this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(123, 21);
-            this.txt_pass.TabIndex = 7;
-            this.txt_pass.Text = "root";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(337, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "密码：";
-            // 
-            // txt_user
-            // 
-            this.txt_user.Location = new System.Drawing.Point(243, 12);
-            this.txt_user.Name = "txt_user";
-            this.txt_user.Size = new System.Drawing.Size(81, 21);
-            this.txt_user.TabIndex = 8;
-            this.txt_user.Text = "root";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "用户：";
-            // 
-            // txt_host
-            // 
-            this.txt_host.Location = new System.Drawing.Point(69, 12);
-            this.txt_host.Name = "txt_host";
-            this.txt_host.Size = new System.Drawing.Size(107, 21);
-            this.txt_host.TabIndex = 9;
-            this.txt_host.Text = "localhost";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "主机：";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(527, 11);
+            this.button1.Location = new System.Drawing.Point(656, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 4;
             this.button1.Text = "初始化";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -112,10 +66,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(615, 11);
+            this.button2.Location = new System.Drawing.Point(744, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
+            this.button2.TabIndex = 5;
             this.button2.Text = "获 取";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -177,6 +131,13 @@
             this.CopyToolStripMenuItem.Text = "复 制";
             this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
+            // txt_time
+            // 
+            this.txt_time.Location = new System.Drawing.Point(138, 37);
+            this.txt_time.Name = "txt_time";
+            this.txt_time.Size = new System.Drawing.Size(100, 21);
+            this.txt_time.TabIndex = 18;
+            // 
             // txt_count
             // 
             this.txt_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -211,15 +172,113 @@
             this.txt_searchkey.Location = new System.Drawing.Point(900, 12);
             this.txt_searchkey.Name = "txt_searchkey";
             this.txt_searchkey.Size = new System.Drawing.Size(269, 21);
-            this.txt_searchkey.TabIndex = 14;
+            this.txt_searchkey.TabIndex = 6;
             this.txt_searchkey.TextChanged += new System.EventHandler(this.txt_searchkey_TextChanged);
             // 
-            // txt_time
+            // label1
             // 
-            this.txt_time.Location = new System.Drawing.Point(138, 37);
-            this.txt_time.Name = "txt_time";
-            this.txt_time.Size = new System.Drawing.Size(100, 21);
-            this.txt_time.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "主机";
+            // 
+            // txt_host
+            // 
+            this.txt_host.Location = new System.Drawing.Point(67, 12);
+            this.txt_host.Name = "txt_host";
+            this.txt_host.Size = new System.Drawing.Size(82, 21);
+            this.txt_host.TabIndex = 0;
+            this.txt_host.Text = "localhost";
+            this.txt_host.TextChanged += new System.EventHandler(this.txt_host_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(329, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "用户";
+            // 
+            // txt_user
+            // 
+            this.txt_user.Location = new System.Drawing.Point(381, 12);
+            this.txt_user.Name = "txt_user";
+            this.txt_user.Size = new System.Drawing.Size(82, 21);
+            this.txt_user.TabIndex = 2;
+            this.txt_user.Text = "root";
+            this.txt_user.TextChanged += new System.EventHandler(this.txt_user_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(486, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "密码";
+            // 
+            // txt_pass
+            // 
+            this.txt_pass.Location = new System.Drawing.Point(538, 12);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.Size = new System.Drawing.Size(82, 21);
+            this.txt_pass.TabIndex = 3;
+            this.txt_pass.Text = "123456";
+            this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(172, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "端口";
+            // 
+            // txt_port
+            // 
+            this.txt_port.Location = new System.Drawing.Point(224, 12);
+            this.txt_port.Name = "txt_port";
+            this.txt_port.Size = new System.Drawing.Size(82, 21);
+            this.txt_port.TabIndex = 1;
+            this.txt_port.Text = "3306";
+            this.txt_port.TextChanged += new System.EventHandler(this.txt_port_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Enabled = false;
+            this.label6.Location = new System.Drawing.Point(1020, 541);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 12);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "【借鉴Seay法师插件源码】";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(440, 541);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(173, 12);
+            this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Blog : https://www.virzz.com";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(619, 541);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(395, 12);
+            this.linkLabel2.TabIndex = 23;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Github : https://github.com/virzz general_log版 Ver 2.0 By Virink";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // MysqlMonitoring
             // 
@@ -227,25 +286,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1184, 562);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt_port);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txt_pass);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txt_user);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txt_host);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_searchkey);
             this.Controls.Add(this.txt_break);
             this.Controls.Add(this.txt_count);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txt_pass);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_user);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_host);
-            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 200);
             this.Name = "MysqlMonitoring";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MysSQL 执行语句监测 general_log版本 By Virink 【借鉴Seay法师插件源码】";
+            this.Text = "MySQL 执行语句监测工具";
             this.Load += new System.EventHandler(this.F_MysqlMonitoring_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -258,12 +322,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_pass;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_user;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_host;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -275,5 +333,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_searchkey;
         private System.Windows.Forms.TextBox txt_time;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_host;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_user;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_pass;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_port;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
