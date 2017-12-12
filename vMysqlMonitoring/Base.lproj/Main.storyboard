@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6"/>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="vMysqlMonitoring" customModuleProvider="target"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="-108"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="vMysqlMonitoring" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="800" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="aNX-Gp-f6t"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="YHN-Zb-IQf" kind="relationship" relationship="window.shadowedContentViewController" id="tWh-ZO-Wgy"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Bb9-eX-ECt">
+            <objects>
+                <viewController title="View" id="YHN-Zb-IQf" userLabel="View Controller" customClass="ViewController" customModule="vMysqlMonitoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="9Bn-mo-QwY">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="398"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNg-H1-Ut1" userLabel="Preferences View">
+                                <rect key="frame" x="0.0" y="360" width="800" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" tag="2" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-Ie-oxE" userLabel="host">
+                                        <rect key="frame" x="20" y="8" width="160" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="umA-3E-hnl" userLabel="hostc">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="YHN-Zb-IQf" name="value" keyPath="self.p_host" id="WgF-Z3-foe">
+                                                    <dictionary key="options">
+                                                        <string key="NSNullPlaceholder">host</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" tag="3" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imO-38-AaV" userLabel="port">
+                                        <rect key="frame" x="200" y="8" width="60" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="SgG-E6-t3x" userLabel="portc">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="YHN-Zb-IQf" name="value" keyPath="self.p_port" id="8C6-VZ-C7e">
+                                                    <dictionary key="options">
+                                                        <string key="NSNullPlaceholder">port</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" tag="4" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdO-gS-EoO" userLabel="user">
+                                        <rect key="frame" x="280" y="8" width="100" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="cIp-Jx-Gj8" userLabel="userc">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="YHN-Zb-IQf" name="value" keyPath="self.p_user" id="wdo-ui-zFC">
+                                                    <dictionary key="options">
+                                                        <string key="NSNullPlaceholder">user</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" tag="5" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caq-1a-Bsv" userLabel="pass">
+                                        <rect key="frame" x="400" y="8" width="100" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="0Uf-XY-SQY" userLabel="passc">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="YHN-Zb-IQf" name="value" keyPath="self.p_pass" id="nuJ-wf-VFP">
+                                                    <dictionary key="options">
+                                                        <string key="NSNullPlaceholder">pass</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fn6-ZE-rfO" userLabel="filter">
+                                        <rect key="frame" x="520" y="8" width="260" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="I2V-NZ-E9K" userLabel="filterc">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="YHN-Zb-IQf" id="xob-P3-RLL"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </customView>
+                            <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhz-kW-mNE">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="361"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="Xgo-pg-nuR">
+                                    <rect key="frame" x="0.0" y="0.0" width="800" height="361"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="DIl-NG-YTN" viewBased="YES" id="B0K-ti-6vW">
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="338"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="vtime" editable="NO" width="150" minWidth="40" maxWidth="1000" id="k3R-dN-rsd" userLabel="vtime">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Time">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Text Cell" id="aJj-ig-8nP" userLabel="Text Cell">
+                                                        <font key="font" metaFont="systemThin" size="13"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="vtime" id="PY7-vA-nT2">
+                                                            <rect key="frame" x="1" y="1" width="150" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFe-yK-aDJ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="j3n-6Y-dON">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="PY7-vA-nT2" name="value" keyPath="objectValue.vtime" id="Y6N-Y9-xdo"/>
+                                                                    </connections>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="wFe-yK-aDJ" id="o1f-oB-sby"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                    <connections>
+                                                        <binding destination="TUV-gc-SxK" name="value" keyPath="arrangedObjects.vtime" id="Sq0-0e-OWR">
+                                                            <dictionary key="options">
+                                                                <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                            </dictionary>
+                                                        </binding>
+                                                    </connections>
+                                                </tableColumn>
+                                                <tableColumn identifier="vsql" width="644" minWidth="10" maxWidth="4096" id="fUr-kd-kr2" userLabel="vsql">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Sql">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="YEy-nc-k1K" userLabel="Text Cell">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="vsql" id="wP5-YS-pEA">
+                                                            <rect key="frame" x="154" y="1" width="644" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9h-Nh-jeT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="644" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="gni-xP-05x">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="wP5-YS-pEA" name="value" keyPath="objectValue.vsql" id="ZCd-Lh-f5a"/>
+                                                                    </connections>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="S9h-Nh-jeT" id="lrI-B7-VEc"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                    <connections>
+                                                        <binding destination="TUV-gc-SxK" name="value" keyPath="arrangedObjects.vsql" id="H56-eK-j7p"/>
+                                                    </connections>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <action trigger="doubleAction" selector="copyTableData:" target="YHN-Zb-IQf" id="FHO-m3-XyE"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                    <nil key="backgroundColor"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="tP5-Be-acv">
+                                    <rect key="frame" x="0.0" y="7" width="0.0" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Kbq-oE-zUt">
+                                    <rect key="frame" x="-16" y="23" width="16" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="DIl-NG-YTN">
+                                    <rect key="frame" x="0.0" y="0.0" width="800" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="B0K-ti-6vW" id="v3R-MT-RDJ"/>
+                        <outlet property="dbHost" destination="Nji-Ie-oxE" id="mlQ-iX-vq1"/>
+                        <outlet property="dbPass" destination="caq-1a-Bsv" id="0fJ-tt-ipB"/>
+                        <outlet property="dbPort" destination="imO-38-AaV" id="mwN-gz-d7N"/>
+                        <outlet property="dbUser" destination="KdO-gS-EoO" id="L0I-Sl-h5B"/>
+                        <outlet property="filterTextField" destination="fn6-ZE-rfO" id="V7x-io-8Is"/>
+                        <outlet property="mainMenu" destination="W7F-7r-ZQv" id="DNW-BQ-LzN"/>
+                    </connections>
+                </viewController>
+                <customObject id="c1J-mJ-tsz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController id="TUV-gc-SxK" userLabel="listData Controller">
+                    <connections>
+                        <binding destination="YHN-Zb-IQf" name="contentArray" keyPath="self.listData" id="pMp-N6-ssM"/>
+                    </connections>
+                </arrayController>
+                <menu title="Main Menu" systemMenu="main" id="W7F-7r-ZQv">
+                    <items>
+                        <menuItem title="vMysqlMonitoring" id="hGW-jY-2CN">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" title="vMysqlMonitoring" systemMenu="apple" id="TNF-eV-KJd">
+                                <items>
+                                    <menuItem title="About vMysqlMonitoring" alternate="YES" keyEquivalent="A" id="y3T-rl-eNV">
+                                        <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                        <connections>
+                                            <action selector="openAbout:" target="YHN-Zb-IQf" id="Cdt-HT-ZT5"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="bhq-2a-GbV"/>
+                                    <menuItem title="Preferences…" enabled="NO" keyEquivalent="," id="sA5-rh-3lc"/>
+                                    <menuItem isSeparatorItem="YES" id="h8d-o2-CoL"/>
+                                    <menuItem title="Hide vMysqlMonitoring" keyEquivalent="h" id="cDe-bp-N6t">
+                                        <connections>
+                                            <action selector="hide:" target="c1J-mJ-tsz" id="hnm-kL-oEZ"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Hide Others" keyEquivalent="h" id="iVe-yI-Aa1">
+                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        <connections>
+                                            <action selector="hideOtherApplications:" target="c1J-mJ-tsz" id="ljs-ch-4Kp"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Show All" id="wsQ-hv-jMS">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="unhideAllApplications:" target="c1J-mJ-tsz" id="Ecs-dS-1C1"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem isSeparatorItem="YES" id="hZf-41-SYK"/>
+                                    <menuItem title="Quit vMysqlMonitoring" keyEquivalent="q" id="aNa-q6-r8I">
+                                        <connections>
+                                            <action selector="terminate:" target="c1J-mJ-tsz" id="B6x-zZ-0wM"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                        <menuItem title="actionMenu" id="a78-GA-w79">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <menu key="submenu" title="actionMenu" systemMenu="apple" id="RsM-02-UfU">
+                                <items>
+                                    <menuItem title="OpenLog" id="Mp0-QF-0ED" userLabel="OpenLog">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="setOpenLog:" target="YHN-Zb-IQf" id="na0-0T-dlT"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="SetTimeNow" keyEquivalent="d" id="gNX-QO-gh8" userLabel="SetTimeNow">
+                                        <connections>
+                                            <action selector="setTimeNow:" target="YHN-Zb-IQf" id="9vX-BX-rJO"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="GetQuery" keyEquivalent="r" id="3DG-qK-bVc" userLabel="GetQuery">
+                                        <connections>
+                                            <action selector="GetQuerySQL:" target="YHN-Zb-IQf" id="MrO-Ww-yM2"/>
+                                        </connections>
+                                    </menuItem>
+                                    <menuItem title="Filter" keyEquivalent="f" id="0cx-DB-sRw" userLabel="Filter">
+                                        <connections>
+                                            <action selector="Filter:" target="YHN-Zb-IQf" id="quL-W9-pzo"/>
+                                        </connections>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </menuItem>
+                    </items>
+                </menu>
+            </objects>
+            <point key="canvasLocation" x="74" y="572"/>
+        </scene>
+    </scenes>
+</document>
