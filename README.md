@@ -14,6 +14,16 @@
 - 实时筛选SQL语句
 - 双击行复制SQL语句到剪贴板
 
+### Usage
+
+- 首先确保成功连接数据库
+- CMD+D setTimeNow 设置 时间断点
+- 访问你的网站(执行语句) 
+- CMD+R GetQuery 获取Sql语句
+- CMD+F 快速设置filter筛选框焦点
+- OpenLog 清空并开启Log日志
+- 双击行复制SQL语句到剪贴板
+
 ## Author
 
 **Virink**
