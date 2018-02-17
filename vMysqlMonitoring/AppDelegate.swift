@@ -8,6 +8,15 @@
 
 import Cocoa
 
+func VLog<T>(msg: T,
+              fileName: String = #file,
+              methodName: String = #function,
+              lineNumber: Int = #line){
+    #if DEBUG
+        print("[\((fileName as NSString).pathComponents.last!):\(lineNumber)] [\(methodName)]:\n\(msg)\n-------------------------------------------\n")
+    #endif
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     

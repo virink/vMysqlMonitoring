@@ -14,11 +14,13 @@ let DATA_PATH = "\(DATA_DIRECTORY)/Preference.dat"
 class PreferenceData:NSObject {
     
     static let sharedInstance = PreferenceData()
+    static let default_data = "127.0.0.1:3306:root::mysql"
     
-    var v_host:String
-    var v_port:Int
-    var v_user:String
-    var v_pass:String
+    var host:String! = nil
+    var port:Int! = nil
+    var user:String! = nil
+    var pass:String! = nil
+    var name:String! = nil
     
     override init()
     {
@@ -31,31 +33,38 @@ class PreferenceData:NSObject {
         }
         if !FileManager.default.fileExists(atPath: DATA_PATH) {
             do{
-                let data = "127.0.0.1:3306:root:root"
-                try data.write(toFile: DATA_PATH, atomically: false, encoding: String.Encoding.utf8)
+                try PreferenceData.default_data.write(toFile: DATA_PATH, atomically: false, encoding: String.Encoding.utf8)
             }
             catch {
             }
         }
-        
+        super.init()
+        read()
+    }
+    
+    func read(){
         let conf = try! NSString(contentsOfFile: DATA_PATH, encoding: String.Encoding.utf8.rawValue) as String
         let data = conf.components(separatedBy: ":")
-        self.v_host = data[0]
-        self.v_port = (data[1] as NSString).integerValue
-        self.v_user = data[2]
-        self.v_pass = data[3]
-        
-        NSLog("mysql config : \(self.v_host+":\(self.v_port):"+self.v_user+":"+self.v_pass)")
-        
-        super.init()
-        
+        if (data.count != 5){
+            VLog(msg: "mysql config error")
+            try! PreferenceData.default_data.write(toFile: DATA_PATH, atomically: false, encoding: String.Encoding.utf8)
+            read()
+        } else{
+            self.host = data[0]
+            self.port = (data[1] as NSString).integerValue
+            self.user = data[2]
+            self.pass = data[3]
+            self.name = data[4]
+            VLog(msg: "mysql config : \(data)")
+        }
     }
     
     func save()
     {
         let data:String
-        data = self.v_host+":\(self.v_port):"+self.v_user+":"+self.v_pass
+        data = self.host+":\(String(self.port)):"+self.user+":"+self.pass+":"+self.name
         try! data.write(toFile: DATA_PATH, atomically: false, encoding: String.Encoding.utf8)
+        VLog(msg:"save mysql config : \(data)")
     }
 }
 

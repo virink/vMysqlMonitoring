@@ -8,7 +8,7 @@
 
 import Cocoa
 
-let __VERSION__ = "Ver 1.0 Beta"
+let __VERSION__ = "Ver 1.1 Beta"
 
 class ViewController: NSViewController {
     
@@ -28,6 +28,11 @@ class ViewController: NSViewController {
     dynamic var aboutWin: NSWindow! = nil
     dynamic var sessionCode : NSApplication.ModalSession? = nil
     
+    // DBManager
+    var dbc = PreferenceData.sharedInstance
+    var filter:String = ""
+    var db:DBManager = DBManager.shared()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +41,7 @@ class ViewController: NSViewController {
         NSApp.mainMenu = mainMenu
         self.view.window?.makeFirstResponder(self)
         
+        self.connectDB()
     }
     
     override var representedObject: Any? {
@@ -62,30 +68,41 @@ class ViewController: NSViewController {
     }
     
     func closeAbout(_ sender: Any){
-        NSLog("\(sender)")
+        VLog(msg:"\(sender)")
         if let sessionCode = self.sessionCode {
             NSApplication.shared().endModalSession(sessionCode)
             self.sessionCode = nil
-            NSLog("closeAbout")
+            VLog(msg:"closeAbout")
         }
         if let win = (sender as AnyObject).object {
             if win as! NSObject == self.view.window! {
-                NSLog("close App")
+                VLog(msg:"close App")
                 NSApp.terminate(self)
             }
         }
     }
     
     @IBAction func setOpenLog(_ sender: Any) {
-        MysqlAction.sharedInstance.openlog()
+        self.db.clearLog()
     }
     
     @IBAction func setTimeNow(_ sender: Any) {
-        MysqlAction.sharedInstance.getseconds()
+        self.db.getTime()
     }
     
     @IBAction func GetQuerySQL(_ sender: Any) {
-        self.queryAll()
+        var originalData = [NSDictionary]()
+        self.listData.removeAll()
+        let rows = self.db.getAllSqls() as NSMutableArray
+        if (rows.count > 0 && (rows[0] as! NSMutableArray).count > 0){
+            for row in rows {
+                VLog(msg: row)
+                let _r = row as! NSMutableArray
+                originalData.append(["vtime":_r[0],"vsql":_r[1]])
+            }
+            self.listData = originalData
+            self.TableView.reloadData()
+        }
     }
     
     @IBAction func Filter(_ sender: Any) {
@@ -101,65 +118,51 @@ class ViewController: NSViewController {
         let pb = NSPasteboard.general()
         pb.clearContents()
         pb.writeObjects([msg as! NSString])
-        NSLog("\(self.listData[row].value(forKey: "vsql") as! String)")
+        VLog(msg:"\(self.listData[row].value(forKey: "vsql") as! String)")
         // 弹出用户通知 user notification
         let notification = NSUserNotification()
         notification.title = "Set \"\(String(describing: msg))\" to Pasteboard Success!"
         NSUserNotificationCenter.default.deliver(notification)
     }
     
+    func connectDB() {
+        if (self.db.connect(dbc.host,connectUser: dbc.user,connectPassword: dbc.pass,connectName: dbc.name,connectPort: UInt32(dbc.port))){
+            self.db.getTime()
+        }
+    }
+    
     var p_host:String{
-        get{ return PreferenceData.sharedInstance.v_host }
-        set{ PreferenceData.sharedInstance.v_host = newValue
-             PreferenceData.sharedInstance.save() }
+        get{ return PreferenceData.sharedInstance.host }
+        set{ PreferenceData.sharedInstance.host = newValue
+            PreferenceData.sharedInstance.save() }
     }
     
     var p_port:Int{
-        get{ return PreferenceData.sharedInstance.v_port }
-        set{ PreferenceData.sharedInstance.v_port = newValue
-             PreferenceData.sharedInstance.save() }
+        get{ return PreferenceData.sharedInstance.port }
+        set{ PreferenceData.sharedInstance.port = newValue
+            PreferenceData.sharedInstance.save() }
     }
     
     var p_user:String{
-        get{ return PreferenceData.sharedInstance.v_user }
-        set{ PreferenceData.sharedInstance.v_user = newValue
-             PreferenceData.sharedInstance.save() }
+        get{ return PreferenceData.sharedInstance.user }
+        set{ PreferenceData.sharedInstance.user = newValue
+            PreferenceData.sharedInstance.save() }
     }
     
     var p_pass:String{
-        get{ return PreferenceData.sharedInstance.v_pass }
-        set{ PreferenceData.sharedInstance.v_pass = newValue
-             PreferenceData.sharedInstance.save() }
+        get{ return PreferenceData.sharedInstance.pass }
+        set{ PreferenceData.sharedInstance.pass = newValue
+            PreferenceData.sharedInstance.save() }
     }
     
-    func queryAll(){
-        var originalData = [NSDictionary]()
-        self.listData.removeAll()
-        do {
-            let rows = try MysqlAction.sharedInstance.query()
-            for row in rows! {
-                if !row.isEmpty {
-                    let data = NSMutableDictionary()
-                    data["vtime"] = self.Date2String(t: row["vtime"] as! Date)
-                    data["vsql"] = row["vsql"]
-                    originalData.append(data)
-                }
-            }
-            self.listData = originalData
-            self.TableView.reloadData()
-        }
-        catch(let e){
-            NSLog("Error : queryAll \(e)")
-        }
-    }
-    
-    func Date2String(t:Date) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        return dateFormatter.string(from: t)
-    }
-    
+//
+//    func Date2String(t:Date) -> String{
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        return dateFormatter.string(from: t)
+//    }
+//
     func filter(f:String){
         var originalData = [NSDictionary]()
         if self.original_filter.isEmpty {
@@ -191,8 +194,9 @@ extension ViewController:NSTextFieldDelegate{
             let text = textField.stringValue
             if(textField == self.filterTextField){
                 self.filter(f: text)
-                NSLog("filterTextField : \(text)")
+                VLog(msg: "filterTextField : \(text)")
             }
         }
     }
 }
+
