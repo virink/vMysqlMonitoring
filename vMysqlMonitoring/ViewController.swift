@@ -134,25 +134,33 @@ class ViewController: NSViewController {
     var p_host:String{
         get{ return PreferenceData.sharedInstance.host }
         set{ PreferenceData.sharedInstance.host = newValue
-            PreferenceData.sharedInstance.save() }
+            PreferenceData.sharedInstance.save()
+            self.connectDB()
+        }
     }
     
     var p_port:Int{
         get{ return PreferenceData.sharedInstance.port }
         set{ PreferenceData.sharedInstance.port = newValue
-            PreferenceData.sharedInstance.save() }
+            PreferenceData.sharedInstance.save()
+            self.connectDB()
+        }
     }
     
     var p_user:String{
         get{ return PreferenceData.sharedInstance.user }
         set{ PreferenceData.sharedInstance.user = newValue
-            PreferenceData.sharedInstance.save() }
+            PreferenceData.sharedInstance.save()
+            self.connectDB()
+        }
     }
     
     var p_pass:String{
         get{ return PreferenceData.sharedInstance.pass }
         set{ PreferenceData.sharedInstance.pass = newValue
-            PreferenceData.sharedInstance.save() }
+            PreferenceData.sharedInstance.save()
+            self.connectDB()
+        }
     }
     
 //

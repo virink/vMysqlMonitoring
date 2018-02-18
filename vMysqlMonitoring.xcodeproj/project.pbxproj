@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9020D133203984DE004ECFF9 /* libmariadb.3.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 9020D132203980F2004ECFF9 /* libmariadb.3.dylib */; };
+		9020D13420398507004ECFF9 /* libmariadb.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9020D132203980F2004ECFF9 /* libmariadb.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9034B8541E6F0FE2008E71D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9034B8531E6F0FE2008E71D4 /* AppDelegate.swift */; };
 		9034B8561E6F0FE2008E71D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9034B8551E6F0FE2008E71D4 /* ViewController.swift */; };
 		9034B8581E6F0FE2008E71D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9034B8571E6F0FE2008E71D4 /* Assets.xcassets */; };
@@ -34,8 +36,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9020D12A20397835004ECFF9 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9020D13420398507004ECFF9 /* libmariadb.3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		900197601FFA7A090000AC44 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		9020D132203980F2004ECFF9 /* libmariadb.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmariadb.3.dylib; path = vMysqlMonitoring/libmariadb.3.dylib; sourceTree = "<group>"; };
 		9034B8501E6F0FE1008E71D4 /* vMysqlMonitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vMysqlMonitoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9034B8531E6F0FE2008E71D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9034B8551E6F0FE2008E71D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,16 +115,16 @@
 		9034B8521E6F0FE1008E71D4 /* vMysqlMonitoring */ = {
 			isa = PBXGroup;
 			children = (
-				90F553E520380B0E009A5086 /* vMysqlMonitoring-Bridging-Header.h */,
-				9034B8801E6F20F4008E71D4 /* PreferenceData.swift */,
 				9040C3BF1FDF725300A745D5 /* About */,
 				9034B8531E6F0FE2008E71D4 /* AppDelegate.swift */,
+				9034B8801E6F20F4008E71D4 /* PreferenceData.swift */,
 				9034B8551E6F0FE2008E71D4 /* ViewController.swift */,
 				9034B8571E6F0FE2008E71D4 /* Assets.xcassets */,
 				9034B8591E6F0FE2008E71D4 /* Main.storyboard */,
 				9034B85C1E6F0FE2008E71D4 /* Info.plist */,
 				900197601FFA7A090000AC44 /* DBManager.h */,
 				90F553E620380BBA009A5086 /* DBManager.m */,
+				90F553E520380B0E009A5086 /* vMysqlMonitoring-Bridging-Header.h */,
 			);
 			path = vMysqlMonitoring;
 			sourceTree = "<group>";
@@ -124,6 +141,7 @@
 		F827BE258C8121CA57DEFD22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9020D132203980F2004ECFF9 /* libmariadb.3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +156,8 @@
 				9034B84C1E6F0FE1008E71D4 /* Sources */,
 				9034B84D1E6F0FE1008E71D4 /* Frameworks */,
 				9034B84E1E6F0FE1008E71D4 /* Resources */,
+				9020D12A20397835004ECFF9 /* Embed Libraries */,
+				9020D12E20397E63004ECFF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9020D133203984DE004ECFF9 /* libmariadb.3.dylib in Resources */,
 				9034B8581E6F0FE2008E71D4 /* Assets.xcassets in Resources */,
 				90AE539D1FDF3215008868AE /* AboutController.xib in Resources */,
 				9034B85B1E6F0FE2008E71D4 /* Main.storyboard in Resources */,
@@ -260,6 +281,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9020D12E20397E63004ECFF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n# 每次构建的时候build号自增\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber +1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\n# 修改依赖路径\ninstall_name_tool -change /usr/local/opt/mariadb/lib/libmariadb.3.dylib @executable_path/../Frameworks/libmariadb.3.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9034B84C1E6F0FE1008E71D4 /* Sources */ = {
@@ -428,10 +465,15 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = A67UG8ZSE2;
+				FRAMEWORK_SEARCH_PATHS = "@executable_path/../Frameworks";
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				INFOPLIST_FILE = vMysqlMonitoring/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vMysqlMonitoring",
+				);
 				OTHER_LDFLAGS = (
 					"-L/usr/local/lib",
 					"-lmysqlclient",
@@ -457,10 +499,15 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = A67UG8ZSE2;
+				FRAMEWORK_SEARCH_PATHS = "@executable_path/../Frameworks";
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				INFOPLIST_FILE = vMysqlMonitoring/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/vMysqlMonitoring",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-L/usr/local/lib",
