@@ -46,7 +46,7 @@
         VLog(@"连接成功");
         return true;
     } else {
-        VLog(@"连接失败");
+        VLog(@"连接失败 %s", mysql_error(_myconnect));
         return false;
     }
 }
@@ -61,17 +61,17 @@
 - (NSMutableArray *)getAllSqls {
     NSMutableArray *false_data = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] init], nil];
     if (_myconnect == NULL ) {
-        VLog(@"getAllSqls ： 连接数据库失败");
+        VLog(@"getAllSqls ： 连接数据库失败 %s", mysql_error(_myconnect));
         return false_data;
     }
     if ( [_time  isEqual: @""]) {
-        VLog(@"getAllSqls ： 没设置时间节点");
+        VLog(@"getAllSqls ： 没设置时间节点 %s", mysql_error(_myconnect));
         return false_data;
     }
     NSString *sql = [NSString stringWithFormat:@"SELECT event_time,argument FROM mysql.general_log WHERE (command_type = 'Query' OR command_type = 'Execute') AND unix_timestamp(event_time) > %@ AND argument NOT LIKE '%%general_log%%' AND argument NOT LIKE '%%select event_time,argument from%%' AND argument NOT LIKE '%%SHOW%%' AND argument NOT LIKE '%%SELECT STATE%%' AND argument NOT LIKE '%%SET NAMES%%' AND argument NOT LIKE '%%SET PROFILING%%' AND argument NOT LIKE '%%stime_virink%%' AND argument NOT LIKE '%%SELECT QUERY_ID%%' order by event_time desc;",_time];
     int status = mysql_query(_myconnect, [sql UTF8String]);
     if (status != 0) {
-        VLog(@"查询数据失败");
+        VLog(@"查询数据失败 %s", mysql_error(_myconnect));
         return false_data;
     }
     MYSQL_RES *result = mysql_store_result(_myconnect);
@@ -88,32 +88,34 @@
         }
         [resultArray addObject:rowArray];
     }
+    mysql_free_result(result);
     row = NULL;
     return resultArray;
 }
 
 - (BOOL)getTime {
     if (_myconnect == NULL) {
-        VLog(@"getTime ： 连接数据库失败");
+        VLog(@"getTime ： 连接数据库失败 %s", mysql_error(_myconnect));
         _time = @"";
         return false;
     }
     NSString *sql = @"select unix_timestamp() as 'stime_virink' from dual;";
     int status = mysql_query(_myconnect, [sql UTF8String]);
     if (status != 0) {
-        VLog(@"获取时间失败");
+        VLog(@"获取时间失败 %s", mysql_error(_myconnect));
         _time = @"";
         return false;
     }
     MYSQL_RES *result = mysql_store_result(_myconnect);
     MYSQL_ROW col = mysql_fetch_row(result);
     _time = [NSString stringWithUTF8String:col[0]];
+    mysql_free_result(result);
     return true;
 }
 
 - (BOOL)clearLog {
     if (_myconnect == NULL) {
-        VLog(@"clearLog ： 连接数据库失败");
+        VLog(@"clearLog ： 连接数据库失败 %s", mysql_error(_myconnect));
         return false;
     }
     NSString *sql = @"set global general_log=off;truncate table general_log;SET GLOBAL log_output='table';set global general_log=on;";
@@ -124,7 +126,7 @@
         VLog(@"重置日志成功");
         return true;
     } else {
-        VLog(@"重置日志失败");
+        VLog(@"重置日志失败 %s", mysql_error(_myconnect));
         return false;
     }
 }

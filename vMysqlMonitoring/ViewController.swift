@@ -39,7 +39,7 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(self.closeAbout(_:)),  name: NSNotification.Name.NSWindowWillClose, object: nil)
         
         NSApp.mainMenu = mainMenu
-        self.view.window?.makeFirstResponder(self)
+//        self.view.window?.makeFirstResponder(self)
         
         self.connectDB()
     }
