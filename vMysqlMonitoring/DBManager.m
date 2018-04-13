@@ -89,6 +89,9 @@
         [resultArray addObject:rowArray];
     }
     mysql_free_result(result);
+    do {
+        mysql_free_result(mysql_store_result( _myconnect ));
+    }while( !mysql_next_result( _myconnect ) );
     row = NULL;
     return resultArray;
 }
@@ -108,8 +111,11 @@
     }
     MYSQL_RES *result = mysql_store_result(_myconnect);
     MYSQL_ROW col = mysql_fetch_row(result);
-    _time = [NSString stringWithUTF8String:col[0]];
     mysql_free_result(result);
+    do {
+        mysql_free_result(mysql_store_result( _myconnect ));
+    }while( !mysql_next_result( _myconnect ) );
+    _time = [NSString stringWithUTF8String:col[0]];
     return true;
 }
 
@@ -122,6 +128,9 @@
     mysql_set_server_option(_myconnect,MYSQL_OPTION_MULTI_STATEMENTS_ON);
     int status = mysql_query(_myconnect, [sql UTF8String]);
     mysql_set_server_option(_myconnect,MYSQL_OPTION_MULTI_STATEMENTS_OFF);
+    do {
+        mysql_free_result(mysql_store_result( _myconnect ));
+    }while( !mysql_next_result( _myconnect ) );
     if (status == 0) {
         VLog(@"重置日志成功");
         return true;

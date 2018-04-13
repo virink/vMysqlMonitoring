@@ -93,6 +93,7 @@ class ViewController: NSViewController {
     @IBAction func GetQuerySQL(_ sender: Any) {
         var originalData = [NSDictionary]()
         self.listData.removeAll()
+        self.original_filter.removeAll()
         let rows = self.db.getAllSqls() as NSMutableArray
         if (rows.count > 0 && (rows[0] as! NSMutableArray).count > 0){
             for row in rows {
@@ -100,6 +101,7 @@ class ViewController: NSViewController {
                 let _r = row as! NSMutableArray
                 originalData.append(["vtime":_r[0],"vsql":_r[1]])
             }
+            self.original_filter = originalData
             self.listData = originalData
             self.TableView.reloadData()
         }
@@ -163,32 +165,17 @@ class ViewController: NSViewController {
         }
     }
     
-//
-//    func Date2String(t:Date) -> String{
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        return dateFormatter.string(from: t)
-//    }
-//
     func filter(f:String){
-        var originalData = [NSDictionary]()
-        if self.original_filter.isEmpty {
-            originalData = self.listData
-            self.original_filter = originalData
-        }else{
-            originalData = self.original_filter
-        }
         self.listData.removeAll()
         if f != "" {
-            for xxx in originalData {
+            for xxx in self.original_filter {
                 let str:String = xxx["vsql"] as! String
                 if str.contains(f)  {
                     self.listData.append(xxx)
                 }
             }
         }else{
-            self.listData = originalData
+            self.listData = self.original_filter
         }
         self.TableView.reloadData()
     }
