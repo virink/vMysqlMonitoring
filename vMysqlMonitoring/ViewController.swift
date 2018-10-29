@@ -170,7 +170,7 @@ class ViewController: NSViewController {
         if f != "" {
             for xxx in self.original_filter {
                 let str:String = xxx["vsql"] as! String
-                if str.contains(f)  {
+                if str.lowercased().contains(f.lowercased())  {
                     self.listData.append(xxx)
                 }
             }
