@@ -8,13 +8,14 @@
 
 import Cocoa
 
-let __VERSION__ = "Ver 1.1 Beta"
+let __VERSION__ = "Ver 1.1.1 Beta"
 
 class ViewController: NSViewController {
     
     @IBOutlet weak var TableView: NSTableView!
     @IBOutlet weak var mainMenu: NSMenu!
     @IBOutlet weak var filterTextField: NSTextField!
+    @IBOutlet weak var previewTextField: NSTextField!
     
     @IBOutlet weak var dbHost: NSTextField!
     @IBOutlet weak var dbPort: NSTextField!
@@ -99,7 +100,8 @@ class ViewController: NSViewController {
             for row in rows {
                 VLog(msg: row)
                 let _r = row as! NSMutableArray
-                originalData.append(["vtime":_r[0],"vsql":_r[1]])
+                let t:Array = (_r[0] as! String).components(separatedBy: ".")
+                originalData.append(["vtime":t[0],"vsql":_r[1]])
             }
             self.original_filter = originalData
             self.listData = originalData
@@ -109,6 +111,15 @@ class ViewController: NSViewController {
     
     @IBAction func Filter(_ sender: Any) {
         self.view.window?.makeFirstResponder(self.filterTextField)
+    }
+    
+    @IBAction func showInPreview(_ sender:Any){
+        let row = self.TableView.selectedRow
+        if row<0 {
+            return
+        }
+        let msg = self.listData[row].value(forKey: "vsql")
+        self.previewTextField.stringValue = msg as! String
     }
     
     @IBAction func copyTableData(_ sender: Any){
